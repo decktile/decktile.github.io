@@ -21,7 +21,7 @@ DECKS = {
     "features_demo": ("Every feature", "Layouts, cards, metrics, tables, code, diagrams, charts and speaker cards in one deck."),
     "pdg_demo": ("Diagrams", "predictygraph flowcharts, groups and state machines that pick up the slide theme, plus animated diagrams."),
     "timeline_demo": ("Timelines", "Vertical and horizontal timelines that fit four or more steps."),
-    "mermaid_demo": ("Mermaid", "Flowcharts and sequence diagrams from mermaid blocks."),
+    "mermaid_demo": ("Mermaid", "Sequence diagrams and flowcharts from mermaid blocks. For new diagrams, predictygraph is recommended."),
     "seaborn_demo": ("Charts", "Seaborn and matplotlib charts coloured by the theme."),
     "drawings": ("Drawings", "Explainer charts from a real talk: memory, compute and time slicing, drawn with matplotlib."),
     "lucide_demo": ("Icons", "Lucide icons inline in headings, cards and tables."),
@@ -143,7 +143,7 @@ decktile --pdf --odp slides.md</code></pre>
       <li><b>Pure Python.</b> No Node.js, no browser, no system tools for diagrams.</li>
       <li><b>Looks designed by default.</b> Cards, grids, metrics, timelines and conference themes, no CSS to write.</li>
       <li><b>Editable ODP.</b> Opens in PowerPoint, Keynote, Google Slides and LibreOffice, with real text, lists and tables.</li>
-      <li><b>Diagrams built in.</b> predictygraph, mermaid and seaborn blocks take your theme's fonts and colours. predictygraph diagrams can animate: flowing edges and pulsing outlines in the HTML deck, a clean still frame in PDF.</li>
+      <li><b>Diagrams built in.</b> predictygraph (recommended over mermaid), mermaid and seaborn blocks take your theme's fonts and colours. predictygraph diagrams can animate: flowing edges and pulsing outlines in the HTML deck, a clean still frame in PDF.</li>
     </ul>
     <h2 id="examples">Example decks</h2>
     <p class="lead" style="font-size:1rem">Each deck is built from the Markdown next to it by this site's CI with the latest decktile. Click to present; press <b>P</b> for presenter view.</p>
