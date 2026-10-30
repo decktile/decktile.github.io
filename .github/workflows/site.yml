@@ -3,6 +3,8 @@ name: site
 on:
   push:
     branches: [master]
+  repository_dispatch:
+    types: [examples-changed]   # sent by decktile/decktile when examples/ changes
   schedule:
     - cron: "0 3 * * 1"   # weekly rebuild with the latest decktile release
   workflow_dispatch:
@@ -21,13 +23,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Check out the example decks from decktile
+        uses: actions/checkout@v4
         with:
+          repository: decktile/decktile
+          path: decktile
           lfs: true
+          sparse-checkout: examples
       - uses: astral-sh/setup-uv@v6
         with:
           python-version: "3.13"
       - name: Build decks and index
-        run: uv run --no-project --with decktile --with seaborn --with matplotlib python3 scripts/build_site.py --decktile "uv run --no-project --with decktile --with seaborn --with matplotlib decktile"
+        run: uv run --no-project --with decktile --with seaborn --with matplotlib python3 scripts/build_site.py --src decktile/examples --decktile "uv run --no-project --with decktile --with seaborn --with matplotlib decktile"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

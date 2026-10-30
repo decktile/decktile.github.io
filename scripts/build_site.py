@@ -67,7 +67,7 @@ class SiteBuilder:
         <h3><a href="{md.stem}.html">{html.escape(title)}</a></h3>
         <p>{html.escape(blurb)}</p>
         <p class="links"><a href="{md.stem}.html">Slides</a> · <a href="{md.stem}.pdf">PDF</a> ·
-          <a href="https://github.com/decktile/decktile.github.io/blob/master/decks/{md.name}">Markdown</a> · {n} slides</p>
+          <a href="{REPO}/blob/master/examples/{md.name}">Markdown</a> · {n} slides</p>
       </article>""")
         return PAGE.format(cards="".join(cards), api=API_DOCS, repo=REPO, pypi=PYPI)
 
@@ -80,7 +80,7 @@ class SiteBuilder:
             self.render(md)
         self.copy_assets()
         for f in ("decktile-logo.svg", "decktile-logo-dark.svg", "decktile-mark.svg"):
-            shutil.copy(self.src.parent / f, self.out / f)
+            shutil.copy(Path(__file__).resolve().parent.parent / f, self.out / f)
         (self.out / "index.html").write_text(self.index(decks), encoding="utf-8")
         (self.out / ".nojekyll").write_text("", encoding="utf-8")
         print(f"built {len(decks)} decks into {self.out}")
@@ -160,7 +160,8 @@ decktile --pdf --odp slides.md</code></pre>
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--src", type=Path, default=Path("decks"))
+    p.add_argument("--src", type=Path, default=Path("decktile/examples"),
+                   help="examples/ of a decktile checkout")
     p.add_argument("--out", type=Path, default=Path("_site"))
     p.add_argument("--decktile", default="decktile", help="command to run decktile")
     args = p.parse_args()
