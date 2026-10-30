@@ -23,6 +23,7 @@ DECKS = {
     "timeline_demo": ("Timelines", "Vertical and horizontal timelines that fit four or more steps."),
     "mermaid_demo": ("Mermaid", "Flowcharts and sequence diagrams from mermaid blocks."),
     "seaborn_demo": ("Charts", "Seaborn and matplotlib charts coloured by the theme."),
+    "drawings": ("Drawings", "Explainer charts from a real talk: memory, compute and time slicing, drawn with matplotlib."),
     "lucide_demo": ("Icons", "Lucide icons inline in headings, cards and tables."),
     "kubecon_theme": ("Conference theme", "A built-in event theme: logo, watermark and title slide."),
 }
