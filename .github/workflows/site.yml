@@ -34,7 +34,7 @@ jobs:
         with:
           python-version: "3.13"
       - name: Build decks and index
-        run: uv run --no-project --with decktile --with seaborn --with matplotlib python3 scripts/build_site.py --src decktile/examples --decktile "uv run --no-project --with decktile --with seaborn --with matplotlib decktile"
+        run: uv run --no-project --refresh-package decktile --with decktile --with seaborn --with matplotlib python3 scripts/build_site.py --src decktile/examples --decktile "uv run --no-project --with decktile --with seaborn --with matplotlib decktile"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
