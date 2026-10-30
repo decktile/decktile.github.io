@@ -22,8 +22,7 @@ DECKS = {
     "pdg_demo": ("Diagrams", "predictygraph flowcharts, groups and state machines that pick up the slide theme, plus animated diagrams."),
     "timeline_demo": ("Timelines", "Vertical and horizontal timelines that fit four or more steps."),
     "mermaid_demo": ("Mermaid", "Sequence diagrams and flowcharts from mermaid blocks. For new diagrams, predictygraph is recommended."),
-    "seaborn_demo": ("Charts", "Seaborn and matplotlib charts coloured by the theme."),
-    "drawings": ("Drawings", "Explainer charts from a real talk: memory, compute and time slicing, drawn with matplotlib."),
+    "seaborn_demo": ("Charts", "Seaborn charts coloured by the theme, plus hand-drawn matplotlib explainer charts from a real talk."),
     "lucide_demo": ("Icons", "Lucide icons inline in headings, cards and tables."),
     "kubecon_theme": ("Conference theme", "A built-in event theme: logo, watermark and title slide."),
 }
