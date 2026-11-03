@@ -21,6 +21,7 @@ DECKS = {
     "features_demo": ("Every feature", "Layouts, cards, metrics, tables, code, diagrams, charts and speaker cards in one deck."),
     "pdg_demo": ("Diagrams", "predictygraph flowcharts, groups and state machines that pick up the slide theme, plus animated diagrams."),
     "timeline_demo": ("Timelines", "Vertical and horizontal timelines that fit four or more steps."),
+    "transitions_demo": ("Transitions", "fade, slide, zoom and wipe between slides, set per deck or per slide."),
     "mermaid_demo": ("Mermaid", "Sequence diagrams and flowcharts from mermaid blocks. For new diagrams, predictygraph is recommended."),
     "seaborn_demo": ("Charts", "Seaborn charts coloured by the theme, plus hand-drawn matplotlib explainer charts from a real talk."),
     "lucide_demo": ("Icons", "Lucide icons inline in headings, cards and tables."),
