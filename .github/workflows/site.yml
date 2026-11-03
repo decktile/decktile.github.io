@@ -6,8 +6,8 @@ on:
   repository_dispatch:
     types: [examples-changed]   # sent by decktile/decktile when examples/ changes
   schedule:
-    - cron: "0 3 * * 1"   # weekly rebuild with the latest decktile release
-  workflow_dispatch:
+    - cron: "0 3 * * *"   # daily rebuild with the latest decktile release and examples
+  workflow_dispatch:      # manual run: Actions tab -> site -> Run workflow, or `gh workflow run site.yml`
 
 permissions:
   contents: read

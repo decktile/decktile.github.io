@@ -3,7 +3,7 @@
 The [decktile](https://github.com/decktile/decktile) website: example decks built with decktile, published at [decktile.github.io](https://decktile.github.io).
 
 - `scripts/build_site.py`: renders every deck in decktile's [`examples/`](https://github.com/decktile/decktile/tree/master/examples) to HTML and PDF and writes the front page
-- CI checks out `examples/` from the main repo and rebuilds on every push here, whenever decktile's examples change, and weekly with the latest decktile from PyPI
+- CI checks out `examples/` from the main repo and rebuilds on every push here, whenever decktile's examples change, and daily with the latest decktile from PyPI. To rebuild right away: Actions → site → Run workflow, or `gh workflow run site.yml -R decktile/decktile.github.io`
 
 API docs live with the code at [decktile.github.io/decktile](https://decktile.github.io/decktile/).
 
