@@ -36,7 +36,7 @@ class SiteBuilder:
         self.decktile = decktile
 
     def decks(self) -> list[Path]:
-        found = {p.stem: p for p in sorted(self.src.glob("*.md"))}
+        found = {p.name.removesuffix(".deck.md"): p for p in sorted(self.src.glob("*.deck.md"))}
         order = [s for s in DECKS if s in found] + [s for s in found if s not in DECKS]
         return [found[s] for s in order]
 
@@ -60,14 +60,14 @@ class SiteBuilder:
     def index(self, decks: list[Path]) -> str:
         cards = []
         for md in decks:
-            title, blurb = DECKS.get(md.stem, (md.stem.replace("_", " ").title(), ""))
+            title, blurb = DECKS.get(md.name.removesuffix(".deck.md"), (md.name.removesuffix(".deck.md").replace("_", " ").title(), ""))
             n = self.slide_count(md)
             cards.append(f"""
       <article class="deck">
-        <a class="thumb" href="{md.stem}.html"><iframe src="{md.stem}.html" loading="lazy" tabindex="-1" title="{html.escape(title)}"></iframe></a>
-        <h3><a href="{md.stem}.html">{html.escape(title)}</a></h3>
+        <a class="thumb" href="{md.name.removesuffix(".deck.md")}.html"><iframe src="{md.name.removesuffix(".deck.md")}.html" loading="lazy" tabindex="-1" title="{html.escape(title)}"></iframe></a>
+        <h3><a href="{md.name.removesuffix(".deck.md")}.html">{html.escape(title)}</a></h3>
         <p>{html.escape(blurb)}</p>
-        <p class="links"><a href="{md.stem}.html">Slides</a> · <a href="{md.stem}.pdf">PDF</a> ·
+        <p class="links"><a href="{md.name.removesuffix(".deck.md")}.html">Slides</a> · <a href="{md.name.removesuffix(".deck.md")}.pdf">PDF</a> ·
           <a href="{REPO}/blob/master/examples/{md.name}">Markdown</a> · {n} slides</p>
       </article>""")
         return PAGE.format(cards="".join(cards), api=API_DOCS, repo=REPO, pypi=PYPI)
