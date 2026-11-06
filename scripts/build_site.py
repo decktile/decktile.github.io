@@ -48,6 +48,8 @@ class SiteBuilder:
 
     def render(self, md: Path) -> None:
         subprocess.run([*self.decktile, "-o", str(self.out), "--pdf", str(md)], check=True)
+        for f in self.out.glob(f"{md.name.removesuffix('.md')}.*"):  # decktile < .deck.md support
+            f.replace(f.with_name(f.name.replace(".deck.", ".", 1)))
 
     def copy_assets(self) -> None:
         link = self.out / "assets"
